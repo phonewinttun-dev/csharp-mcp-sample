@@ -10,7 +10,11 @@ class Program
         var transport = new StdioClientTransport(new StdioClientTransportOptions
         {
             Command = "dotnet",
-            Arguments = ["run", "--project", @"d:\slh\proj\mcp-sample\CSharpMcpServerSample\CSharpMcpServerSample.csproj"]
+            Arguments = ["run", "--project", @"d:\slh\proj\mcp-sample\CSharpMcpServerSample\CSharpMcpServerSample.csproj"],
+            StandardErrorLines = lines => 
+            {
+                Console.WriteLine($"[Server Error] {lines}");
+            }
         });
 
         Console.WriteLine("Connecting to MCP Server...");

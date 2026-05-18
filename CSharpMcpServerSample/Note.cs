@@ -1,3 +1,3 @@
 namespace csharp_mcp_sample;
 
-public record Note(int Id, string Title, string Content);
+public record Note(long Id, string Title, string Content);
